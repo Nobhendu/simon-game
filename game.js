@@ -14,6 +14,13 @@ $(document).keydown(function () {
         started = true;
     }
 });
+$(".game-interact").click(function () {
+    if (!started) {
+        $("#level-title").text("Level " + level);
+        generateSequence();
+        started = true;
+    }
+});
 
 $(".btn").click(function () {
     if (started) {
@@ -47,7 +54,7 @@ function checkPattern(inputIndex) {
     else {
         playSound("wrong");
         $("body").addClass("game-over");
-        $("#level-title").text("Game Over, Press Any Key to Restart");
+        $("#level-title").text("Game Over, Press Any Key or Click Here to Restart");
 
         setTimeout(function () {
             $("body").removeClass("game-over");
